@@ -2,12 +2,15 @@ package org.example.math;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("Test Math Operations in SimpleMath Class")
 class SimpleMathTest {
 
     @Test
-    void testSum() {
+    @DisplayName("Test Sum")
+    void testSum_When_FirstNumberIsAddedBySecondNumber_ShouldReturnCorrectSum() {
         SimpleMath math = new SimpleMath();
         double firstNumber = 6.2D;
         double secondNumber = 2D;
@@ -20,7 +23,8 @@ class SimpleMathTest {
     }
 
     @Test
-    void testSubtraction(){
+    @DisplayName("test Subtraction")
+    void testSubtraction_When_FirstNumberIsMinusSecondNumber_ShouldReturnCorrectSubtraction(){
         SimpleMath math = new SimpleMath();
         double firstNumber = 5.2D;
         double secondNumber = 2D;
@@ -28,12 +32,13 @@ class SimpleMathTest {
         double expected = 3.2D;
 
         assertEquals(expected, actual, () -> "%s - %s did not produce %s".formatted(firstNumber, secondNumber, expected));
-        assertNotEquals(10.2D, actual, "The testSum() produce a incorrect result");
-        assertNotNull(actual, "The testSum() produce an null result");
+        assertNotEquals(10.2D, actual, "The subtraction of two numbers produce a incorrect result");
+        assertNotNull(actual, "The subtraction of two numbers produce an null result");
     }
 
     @Test
-    void testMultiplication(){
+    @DisplayName("Test Multiplication")
+    void givenTwoNumbers_whenMultiplying_thenReturnsCorrectMultiplication(){
         SimpleMath math = new SimpleMath();
         double firstNumber = 4.6D;
         double secondNumber = 2.0D;
@@ -46,7 +51,8 @@ class SimpleMathTest {
     }
 
     @Test
-    void testDivision(){
+    @DisplayName("Test Division")
+    void testDivision_When_DividingEqualNumbers_ShouldReturnOne(){
         SimpleMath math = new SimpleMath();
         double firstNumber = 3D;
         double secondNumber = 3D;
@@ -58,7 +64,8 @@ class SimpleMathTest {
         assertNotNull(actual, "The testSum() produce an null result");
     }
     @Test
-    void testMean(){
+    @DisplayName("Test Mean")
+    void testMean_When_CalculatingAverageOfTwoNumbers_ShouldReturnCorrectMean(){
         SimpleMath math = new SimpleMath();
         double firstNumber = 4D;
         double secondNumber = 8D;
@@ -70,7 +77,8 @@ class SimpleMathTest {
         assertNotNull(actual, "The testSum() produce an null result");
     }
     @Test
-    void testSquareRoot(){
+    @DisplayName("Test SquareRoot")
+    void testSquareRoot_When_CalculatingSquareRootOfPerfectSquare_ShouldReturnCorrectRoot(){
         SimpleMath math = new SimpleMath();
         double number = 121D;
         Double actual = math.squareRoot(number);
