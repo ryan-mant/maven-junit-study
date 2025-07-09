@@ -10,9 +10,9 @@ class SimpleMathTest {
     void testSum() {
         SimpleMath math = new SimpleMath();
         Double actual = math.sum(6.2D, 2D);
-        double expected = 8.2D;
+        double expected = 5.2D;
         
-        assertEquals(expected, actual);
+        assertEquals(expected, actual, "The testSum() did not produce expected result");
     }
 
 }
