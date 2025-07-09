@@ -72,11 +72,11 @@ class SimpleMathTest {
     @Test
     void testSquareRoot(){
         SimpleMath math = new SimpleMath();
-        double firstNumber = 121D;
-        Double actual = math.squareRoot(firstNumber);
+        double number = 121D;
+        Double actual = math.squareRoot(number);
         double expected = 11D;
 
-        assertEquals(expected, actual, () -> "SquareRoot of %s did not produce %s".formatted(firstNumber, expected));
+        assertEquals(expected, actual, () -> "SquareRoot of %s did not produce %s".formatted(number, expected));
         assertNotEquals(10.2D, actual, "The testSum() produce a incorrect result");
         assertNotNull(actual, "The testSum() produce an null result");
     }
