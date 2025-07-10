@@ -115,6 +115,25 @@ class SimpleMathTest {
         assertNotNull(actual, "The testSum() produce an null result");
     }
 
+    @Test
+    @DisplayName("Test Division by Zero")
+    void testDivision_When_FirstNumberIsDividedByZero_ShouldThrowArithmeticException() {
 
+        //given
+        double firstNumber = 6.2D;
+        double secondNumber = 0D;
+
+        var expectedMessage = "Impossible to divide by zero!";
+
+        //when & then
+        ArithmeticException actual = assertThrows(
+                ArithmeticException.class, () -> {
+                    //when & then
+                    math.division(firstNumber, secondNumber);
+                }, () -> "Division by zero should throw an ArithmeticException");
+
+        assertEquals(expectedMessage, actual.getMessage(),
+                () -> "Unexpected exception message!");
+    }
 
 }
