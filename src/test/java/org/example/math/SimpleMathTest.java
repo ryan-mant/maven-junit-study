@@ -2,11 +2,35 @@ package org.example.math;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 @DisplayName("Test Math Operations in SimpleMath Class")
 class SimpleMathTest {
+
+    SimpleMath math;
+
+    @BeforeAll
+    static void setup(){
+        System.out.println("Running...");
+    }
+
+    @AfterAll
+    static void cleanup(){
+        System.out.println("It's over!");
+    }
+
+    @BeforeEach()
+     void beforeEachMethod(){
+        System.out.println("Before each");
+        math = new SimpleMath();
+    }
+
+    @AfterEach()
+    void afterEachMethod(){
+        System.out.println("After each");
+        math = new SimpleMath();
+    }
+
 
     @Test
     @DisplayName("Test Sum")
@@ -15,7 +39,6 @@ class SimpleMathTest {
         ///  AAA / Arrange,Act, Assert
 
         // GIVEN / Arrange
-        SimpleMath math = new SimpleMath();
         double firstNumber = 6.2D;
         double secondNumber = 2D;
         double expected = 8.2D;
@@ -32,7 +55,7 @@ class SimpleMathTest {
     @Test
     @DisplayName("test Subtraction")
     void testSubtraction_When_FirstNumberIsMinusSecondNumber_ShouldReturnCorrectSubtraction(){
-        SimpleMath math = new SimpleMath();
+
         double firstNumber = 5.2D;
         double secondNumber = 2D;
         Double actual = math.subtraction(firstNumber, secondNumber);
@@ -46,7 +69,6 @@ class SimpleMathTest {
     @Test
     @DisplayName("Test Multiplication")
     void givenTwoNumbers_whenMultiplying_thenReturnsCorrectMultiplication(){
-        SimpleMath math = new SimpleMath();
         double firstNumber = 4.6D;
         double secondNumber = 2.0D;
         Double actual = math.multiplication(firstNumber, secondNumber);
@@ -60,7 +82,6 @@ class SimpleMathTest {
     @Test
     @DisplayName("Test Division")
     void testDivision_When_DividingEqualNumbers_ShouldReturnOne(){
-        SimpleMath math = new SimpleMath();
         double firstNumber = 3D;
         double secondNumber = 3D;
         Double actual = math.division(firstNumber, secondNumber);
@@ -73,7 +94,6 @@ class SimpleMathTest {
     @Test
     @DisplayName("Test Mean")
     void testMean_When_CalculatingAverageOfTwoNumbers_ShouldReturnCorrectMean(){
-        SimpleMath math = new SimpleMath();
         double firstNumber = 4D;
         double secondNumber = 8D;
         Double actual = math.mean(firstNumber, secondNumber);
@@ -86,7 +106,6 @@ class SimpleMathTest {
     @Test
     @DisplayName("Test SquareRoot")
     void testSquareRoot_When_CalculatingSquareRootOfPerfectSquare_ShouldReturnCorrectRoot(){
-        SimpleMath math = new SimpleMath();
         double number = 121D;
         Double actual = math.squareRoot(number);
         double expected = 11D;
