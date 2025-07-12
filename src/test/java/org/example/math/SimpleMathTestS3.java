@@ -1,11 +1,11 @@
 package org.example.math;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.*;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @DisplayName("Test Math Operations in SimpleMath Class")
-class SimpleMathTest {
+class SimpleMathTestS3 {
 
     SimpleMath math;
 
