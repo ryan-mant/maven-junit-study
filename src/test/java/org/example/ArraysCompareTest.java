@@ -1,9 +1,12 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 public class ArraysCompareTest {
 
@@ -16,5 +19,16 @@ public class ArraysCompareTest {
 
 //        assertEquals(numbers, expectedArray);
         assertArrayEquals(numbers, expectedArray);
+    }
+
+    @Test
+//    @Timeout(1)
+    @Timeout(value = 30, unit = TimeUnit.MILLISECONDS)
+    void testSortPerformance(){
+        int[] numbers = {54,7,28,3,1,78};
+        for (int i = 0; i < 100000; i++) {
+            numbers[0] = i;
+            Arrays.sort(numbers);
+        }
     }
 }
