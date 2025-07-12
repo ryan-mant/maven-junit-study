@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
@@ -21,7 +22,12 @@ class SimpleMathTestS4 {
     }
 
     @ParameterizedTest
-    @MethodSource("testDivisionInputParameters")
+//    @MethodSource("testDivisionInputParameters")
+    @CsvSource({
+            "3, 3, 1",
+            "4, 2, 2",
+            "54.8, 6.2, 8.83"
+    })
     @DisplayName("Test Division")
     void testDivision_When_DividingEqualNumbers_ShouldReturnOne(double firstNumber, double secondNumber, double expected){
 
@@ -32,11 +38,11 @@ class SimpleMathTestS4 {
         assertNotNull(actual, "The testSum() produce an null result");
     }
 
-    public static Stream<Arguments> testDivisionInputParameters(){
-        return Stream.of(
-                Arguments.of(3D, 3D, 1D),
-                Arguments.of(4D, 2D, 2D),
-                Arguments.of(54.8D, 6.2D, 8.83D)
-        );
-    }
+//    public static Stream<Arguments> testDivisionInputParameters(){
+//        return Stream.of(
+//                Arguments.of(3D, 3D, 1D),
+//                Arguments.of(4D, 2D, 2D),
+//                Arguments.of(54.8D, 6.2D, 8.83D)
+//        );
+//    }
 }
