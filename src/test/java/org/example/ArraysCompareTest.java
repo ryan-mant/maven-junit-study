@@ -1,5 +1,6 @@
 package org.example;
 
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
@@ -8,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
+@Order(4)
 public class ArraysCompareTest {
 
     @Test
