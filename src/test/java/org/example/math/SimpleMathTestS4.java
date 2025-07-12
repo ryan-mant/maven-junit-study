@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -21,14 +22,17 @@ class SimpleMathTestS4 {
         math = new SimpleMath();
     }
 
+    @DisplayName("Test division [firstNumber, secondNumber, expected]")
     @ParameterizedTest
 //    @MethodSource("testDivisionInputParameters")
-    @CsvSource({
-            "3, 3, 1",
-            "4, 2, 2",
-            "54.8, 6.2, 8.83"
-    })
-    @DisplayName("Test Division")
+//    @CsvSource({
+//            "3, 3, 1",
+//            "4, 2, 2",
+//            "54.8, 6.2, 8.83"
+//    })
+    @CsvFileSource(
+            resources = "/testDivision.csv"
+    )
     void testDivision_When_DividingEqualNumbers_ShouldReturnOne(double firstNumber, double secondNumber, double expected){
 
         System.out.println("Test " + firstNumber + " / " + secondNumber + " = " + expected);
