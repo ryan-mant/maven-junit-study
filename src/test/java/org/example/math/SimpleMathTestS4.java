@@ -4,10 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.*;
 
 import java.util.stream.Stream;
 
@@ -20,6 +17,13 @@ class SimpleMathTestS4 {
      void beforeEachMethod(){
         System.out.println("Before each");
         math = new SimpleMath();
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"Lucas", "João", "Maria", "Pedro"})
+    void testValueSource(String name) {
+        System.out.println(name);
+        assertNotNull(name);
     }
 
     @DisplayName("Test division [firstNumber, secondNumber, expected]")
